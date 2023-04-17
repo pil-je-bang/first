@@ -17,12 +17,9 @@ L6 = 110.7
 def inverse_kinematics(x, y, z, roll, pitch, yaw):
     
     # Compute the wrist position
-    wx = x - L6 * np.cos(yaw) * np.cos(pitch) * np.sin(roll) + L5 * np.cos(yaw) * np.sin(pitch) - L4 * np.sin(yaw) 
-    * np.cos(pitch) * np.sin(roll) + L3 * np.sin(yaw) * np.sin(pitch) + L2 * np.cos(pitch) * np.sin(roll)
-    wy = y - L6 * np.sin(yaw) * np.cos(pitch) * np.sin(roll) + L4 * np.cos(yaw) * np.cos(pitch) * np.sin(roll) + L2 
-    * np.cos(pitch) * np.cos(roll) - L3 * np.sin(pitch) + L5 * np.sin(yaw) * np.sin(pitch)    
-    wz = z + L6 * np.sin(pitch) * np.sin(yaw) + L4 * np.cos(pitch) * np.cos(yaw) + L3 * np.cos(pitch) * np.sin(yaw) + L5 
-    * np.cos(pitch) * np.cos(yaw) * np.sin(roll)  - L2 * np.sin(pitch) * np.sin(roll)
+    wx = x - L6 * np.cos(yaw) * np.cos(pitch) * np.sin(roll) + L5 * np.cos(yaw) * np.sin(pitch) - L4 * np.sin(yaw) * np.cos(pitch) * np.sin(roll) + L3 * np.sin(yaw) * np.sin(pitch) + L2 * np.cos(pitch) * np.sin(roll)
+    wy = y - L6 * np.sin(yaw) * np.cos(pitch) * np.sin(roll) + L4 * np.cos(yaw) * np.cos(pitch) * np.sin(roll) + L2 * np.cos(pitch) * np.cos(roll) - L3 * np.sin(pitch) + L5 * np.sin(yaw) * np.sin(pitch)    
+    wz = z + L6 * np.sin(pitch) * np.sin(yaw) + L4 * np.cos(pitch) * np.cos(yaw) + L3 * np.cos(pitch) * np.sin(yaw) + L5 * np.cos(pitch) * np.cos(yaw) * np.sin(roll)  - L2 * np.sin(pitch) * np.sin(roll)
 
     # Compute the joint angles
     q1 = np.arctan2(wy, wx)
